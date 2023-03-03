@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "estate-src"
+version = "0.1.0"
+description = ""
+authors = ["Anderson de Araújo Alves <anderson.araujoa@gmail.com>"]
+readme = "README.md"
+packages = [{include = "estate_src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.1.7"
+djangorestframework = "^3.14.0"
+django-environ = "^0.9.0"
+django-filter = "^22.1"
+django-autoslug = "^1.9.8"
+django-countries = "^7.5.1"
+pillow = "^9.4.0"
+django-phonenumber-field = "^7.0.2"
+phonenumbers = "^8.13.6"
+psycopg2-binary = "^2.9.5"
+flake8 = "^6.0.0"
+black = "^23.1.0"
+isort = "^5.12.0"
+
+[tool.flake8]
+ignore = ['E231', 'E241']
+per-file-ignores = ['__init__.py:F401',]
+max-line-length = 119
+exclude = ['.git', '*/migrations/*', '*env*', '*venv*', '__pycache__', '*/staticfiles/*', '*/mediafiles/*']
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
