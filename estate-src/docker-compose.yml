@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123456
+      POSTGRES_DB: db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgres/data
+
+  cloudbeaver:
+    image: dbeaver/cloudbeaver
+    network_mode: "host"
+    depends_on:
+      - db
+    volumes:
+      - dbeaver-data:/opt/cloudbeaver/workspace
+    ports:
+      - "8080:8978"
+
+volumes:
+  db-data:
+  dbeaver-data:
